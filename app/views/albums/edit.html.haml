@@ -1,0 +1,25 @@
+%h1
+  Edit Pictures
+  
+- if @album.errors
+  = render :partial => 'shared/error_messages', :locals => {:object => @album}
+%div
+  = nested_form_for @album do |f|
+    %p
+      Location
+      = f.text_field :location, :value => @venue.name
+    = f.fields_for :images do |builder|
+      = render 'image_fields' , :f => builder
+    %p
+      = f.link_to_add "Add a photo", :images
+    %p
+      = f.submit "Save"
+
+
+:javascript
+  $(document).ready(function() {
+    $('#album_location').autocomplete({
+      source: #{@locations}
+    });
+  });
+  

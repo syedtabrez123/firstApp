@@ -1,0 +1,20 @@
+- if @venue.errors
+  = render :partial => 'shared/error_messages', :locals => {:object => @venue}
+%div 
+  = form_for @venue do |f|
+    %p
+      Name: 
+      = f.text_field :name
+    - if params[:f].present?
+      = hidden_field_tag :redirect, "yes"
+    %p
+      City: 
+      = f.text_field :city
+    %p
+      State: 
+      = f.text_field :state
+    %p
+      Country: 
+      = f.text_field :country
+    %p
+      = f.submit "Save"

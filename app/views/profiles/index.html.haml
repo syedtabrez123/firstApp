@@ -1,0 +1,44 @@
+- if @profile.present?
+  %table
+    %tr
+      %td
+        Profile Picture:
+      %td
+        = image_tag @profile.avatar.url(:thumb)
+    %tr
+      %td
+        First Name:
+      %td
+        = @profile.first_name
+    %tr
+      %td
+        Last Name:
+      %td
+        = @profile.last_name
+    %tr
+      %td
+        Age:
+      %td
+        = @profile.age
+    %tr
+      %td
+        Gender:
+      %td
+        = @profile.gender
+    %tr
+      %td
+        Date of Birth:
+      %td
+        = @profile.dob
+    %tr
+      %td
+        City:
+      %td
+        = @profile.city
+  %p
+    = link_to("Edit Profile", edit_profile_path(@profile))
+- else
+  %p Your profile is not Added, please Add your profile
+  %p 
+    = link_to("Add Profile", new_profile_path)
+    

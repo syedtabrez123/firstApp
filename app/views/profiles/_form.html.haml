@@ -1,0 +1,35 @@
+- if @profile.errors
+  = render :partial => 'shared/error_messages', :locals => {:object => @profile}
+%div
+  = form_for @profile do |f|
+    %p
+      First Name:
+      %br
+      = f.text_field :first_name
+    %p
+      Last Name:
+      %br
+      = f.text_field :last_name
+    %p 
+      Date of Birth:
+      %br
+      = f.text_field :dob
+    %p
+      Gender:
+      %br
+      = f.radio_button :gender, 'M', :checked => true
+      = label :male, 'Male'
+      = f.radio_button :gender, 'F'
+      = label :female, 'Female'
+    %p
+      City:
+      %br
+      = f.text_field :city
+    %p
+      Upload Photo:
+      %br
+      = f.file_field :avatar
+    %p
+      = f.submit "Save"
+      
+  

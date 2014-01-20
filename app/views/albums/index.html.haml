@@ -1,0 +1,15 @@
+%h1
+  My Party Pictures
+
+%div
+  - unless @album.blank?
+    - unless @pictures.blank?
+      - @pictures.each do |pic|
+        %p
+          = image_tag(pic.photo.url(:thumb))
+    %p
+      = link_to "Edit Pictures", edit_album_path(@album)
+  - else
+    No Pictures Available
+    %p
+      = link_to "Add Pictures", new_album_path

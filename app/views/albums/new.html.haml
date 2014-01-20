@@ -1,0 +1,31 @@
+%h1
+  Add Pictures
+- if @album.errors
+  = render :partial => 'shared/error_messages', :locals => {:object => @album}
+%div
+  = nested_form_for @album do |f|
+    %p
+      Location
+      - if params[:venue].present?
+        = f.text_field :location, :value => params[:venue]
+      - else
+        = f.text_field :location
+      = link_to "Add venue" , new_venue_path(:f => true), :class => "fancybox"
+    = f.fields_for :images do |builder|
+      = render 'image_fields' , :f => builder
+    %p
+      = f.link_to_add "Add a photo", :images
+    %p
+      = f.submit "Save"
+
+
+:javascript
+  $(document).ready(function() {
+    $('#album_location').autocomplete({
+      source: #{@locations}
+    });
+    jQuery(function() {
+    $("a.fancybox").fancybox();
+    });
+  });
+  

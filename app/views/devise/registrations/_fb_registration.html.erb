@@ -1,0 +1,19 @@
+<div id="dialog" style="display:none;">
+<iframe allowTransparency ="true", frameborder = "no", height ="430", scrolling ="true", src="https://www.facebook.com/plugins/registration?client_id=162136443916742&redirect_uri=http://localhost:3000/authentications/facebook_registration&fields=[{'name':'name'},{'name':'email'},{'name':'password'},{'name':'location'},{'name':'gender'},{'name':'birthday'},{'name':'first_name'},{'name':'last_name'}]", style = "border:none", width ="500"></iframe>
+</div>
+<script type="text/javascript">
+  $(document).ready(function () {
+      $(function () {
+          $("#dialog").dialog({
+              autoOpen: false,
+              modal: true,
+              height: 510,
+              width: 565
+          });
+      });
+  });
+
+  $('#reg_fb').click(function(){
+    $("#dialog").dialog('open');
+  });
+</script>

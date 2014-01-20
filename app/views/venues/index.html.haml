@@ -1,0 +1,28 @@
+%h1
+  Venues 
+- unless @venues.blank?
+  %table
+    %tr
+      %th
+        Name
+      %th
+        City
+      %th
+        State
+      %th
+        Country
+    - @venues.each do |venue|
+      %tr
+        %td
+          = venue.name
+        %td
+          = venue.city
+        %td
+          = venue.state
+        %td
+          = venue.country
+- else
+  No Venues Found
+
+%p
+  = link_to "Add Venue" , new_venue_path
