@@ -21,7 +21,7 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
   require "omniauth-facebook"
-  config.omniauth :facebook, "162136443916742", "4d466bd356e21983e440e513e5266f1e", {:client_options => {:ssl => {:verify_mode => OpenSSL::SSL::VERIFY_NONE}},:display => 'popup'}
+  config.omniauth :facebook, '203135289889463', 'e62939042797fddf59354b89c34a3c25', {:client_options => {:ssl => {:verify_mode => OpenSSL::SSL::VERIFY_NONE}},:display => 'popup'}
   config.omniauth :twitter, "7msmNKyhA6IdazDM83lA", "T852cjtBKCp0pATqglCDvKJSjIZ7hHosfqqsPTmWnU"
 
   # ==> Configuration for any authentication mechanism
