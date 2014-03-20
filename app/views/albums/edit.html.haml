@@ -6,8 +6,8 @@
 %div
   = nested_form_for @album do |f|
     %p
-      Location
-      = f.text_field :location, :value => @venue.name
+      = f.label :name
+      = f.text_field :name
     = f.fields_for :images do |builder|
       = render 'image_fields' , :f => builder
     %p
@@ -18,8 +18,8 @@
 
 :javascript
   $(document).ready(function() {
-    $('#album_location').autocomplete({
-      source: #{@locations}
-    });
+    #$('#album_location').autocomplete({
+    #  source: #{@locations}
+    #});
   });
   

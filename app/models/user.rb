@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_one :profile, :dependent => :destroy
-  has_one :album, :dependent => :destroy
+  has_many :albums, :dependent => :destroy
 
    def self.facebook_oauth(auth, signed_in_resource=nil)
     member = Authentication.where(:provider => auth.provider, :uid => auth.uid).first
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
   def self.twitter_oauth(auth, signed_in_resource=nil)
     member = Authentication.where(:provider => auth.provider, :uid => auth.uid).first
     if member.blank?
-      email = auth.info.nickname + "@billydo.com"
+      email = auth.info.nickname + "@myalbum.com"
       user = User.new(email: email, password: Devise.friendly_token[0,20])
       user.skip_confirmation!
       user.save

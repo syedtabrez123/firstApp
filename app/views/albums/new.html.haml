@@ -5,12 +5,8 @@
 %div
   = nested_form_for @album do |f|
     %p
-      Location
-      - if params[:venue].present?
-        = f.text_field :location, :value => params[:venue]
-      - else
-        = f.text_field :location
-      = link_to "Add venue" , new_venue_path(:f => true), :class => "fancybox"
+      = f.label :name
+      = f.text_field :name
     = f.fields_for :images do |builder|
       = render 'image_fields' , :f => builder
     %p
@@ -21,9 +17,9 @@
 
 :javascript
   $(document).ready(function() {
-    $('#album_location').autocomplete({
-      source: #{@locations}
-    });
+    #$('#album_location').autocomplete({
+      #source: #{@locations}
+    #});
     jQuery(function() {
     $("a.fancybox").fancybox();
     });

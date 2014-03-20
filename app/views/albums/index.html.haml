@@ -2,14 +2,12 @@
   My Party Pictures
 
 %div
-  - unless @album.blank?
-    - unless @pictures.blank?
-      - @pictures.each do |pic|
-        %p
-          = image_tag(pic.photo.url(:thumb))
-    %p
-      = link_to "Edit Pictures", edit_album_path(@album)
+  - unless @albums.blank?
+    -@albums.each do |album|
+      %p
+        = link_to album.name, album_path(album)
+        = link_to "Edit", edit_album_path(album)
   - else
-    No Pictures Available
-    %p
-      = link_to "Add Pictures", new_album_path
+    No Albums Available
+  %p
+    = link_to "New Album", new_album_path
